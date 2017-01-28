@@ -17,13 +17,13 @@ $name  = $_POST['contactName'];
  **************************/
 
  //username for SMS gateway
- $user = "***username for SMS Horizon goes here****";
+ $user = "******username*******";
 
 // // API KEY for SMS gateway
-$apikey = "***Api Key can be found on you account***"; 
+$apikey = "************API KEY************"; 
 
 // //Sender ID, for SMS gateway
-$senderid  =  "***Your 6 digit sender id for smshorizon***"; 
+$senderid  =  "************ senderid ************"; 
 
 // // mobile number comes from $numbr
 $mobile  = $numbr; 
@@ -36,7 +36,7 @@ $message = urlencode($message);
 // // For Plain Text, use "txt" ; for Unicode symbols or regional Languages like hindi/tamil/kannada use "uni" 
 
 //-> Sending message
-$ch = curl_init("http://smshorizon.co.in/api/sendsms.php?user=".$user."&apikey=".$apikey."&mobile=".$mobile."&senderid=HandyS&message=".$message."&type=txt"); 
+$ch = curl_init("http://smshorizon.co.in/api/sendsms.php?user=".$user."&apikey=".$apikey."&mobile=".$mobile."&senderid=".$senderid."&message=".$message."&type=txt"); 
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);      
@@ -53,10 +53,10 @@ $ch = curl_init("http://smshorizon.co.in/api/sendsms.php?user=".$user."&apikey="
 ob_start();
 
 define('DB_DRIVER', 'mysql');
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASSWORD", "");
-define("DB_DATABASE", "smsgateway");
+define("DB_HOST", "sql308.epizy.com");
+define("DB_USER", "epiz_19505897");
+define("DB_PASSWORD", "saikat");
+define("DB_DATABASE", "epiz_19505897_smsgateway");
 
 // basic options for PDO 
 $dboptions = array(
@@ -70,7 +70,7 @@ $dboptions = array(
 try {
     $DB = new PDO(DB_DRIVER . ':host=' . DB_HOST . ';dbname=' . DB_DATABASE, DB_USER, DB_PASSWORD, $dboptions);
 } catch (Exception $ex) {
-    echo($ex->getMessage());
+   // echo($ex->getMessage());
     die;
 }
 
@@ -83,7 +83,7 @@ try {
         $stmt->execute();
         $results = $stmt->fetchAll();
     } catch (Exception $ex) {
-       // echo($ex->getMessage());
+      // echo($ex->getMessage());
     }
 
 
