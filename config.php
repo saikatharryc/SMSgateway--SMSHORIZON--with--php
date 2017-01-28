@@ -5,8 +5,8 @@ website-> Www.Saikat.cf
 
 <?php
 
-$numbr = $_POST['number'];
-$name  = $_POST['name'];
+$numbr = $_POST['contactMobile'];
+$name  = $_POST['contactName'];
 
 
 
